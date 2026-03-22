@@ -56,4 +56,4 @@ Gostou do meu trabalho? Vamos conversar!
 * **LinkedIn:** [Seu Perfil Aqui](#)
 
 ---
-*Desenvolvido com 💛 por Israel Silva Alcantara*
+*Desenvolvido por Israel Alcantara*
