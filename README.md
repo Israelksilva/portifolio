@@ -53,7 +53,7 @@ Gostou do meu trabalho? Vamos conversar!
 
 * **WhatsApp:** [+55 71 99189-1833](https://wa.me/5571991891833)
 * **E-mail:** [israel.alcantara@hotmail.com](mailto:israel.alcantara@hotmail.com)
-* **LinkedIn:** [Seu Perfil Aqui](#)
+* **LinkedIn:** [www.linkedin.com/in/israel-alcantara-b899b2326](#)
 
 ---
 *Desenvolvido por Israel Alcantara*
