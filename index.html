@@ -76,11 +76,12 @@
 
         /* Projetos */
         .projects { padding: 100px 10%; background: #080808; text-align: center; }
-        .grid-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .grid-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
         .p-card {
             background: var(--card-dark); border: 1px solid var(--border);
             border-radius: 25px; padding: 40px; text-align: left; transition: 0.4s;
             position: relative; overflow: hidden;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
         .p-card:hover { transform: scale(1.03); border-color: #333; }
         .p-card::after {
@@ -89,8 +90,8 @@
         }
         .p-card:hover::after { width: 100%; }
         .p-card h3 { color: var(--primary-gold); margin-top: 0; }
-        .p-card p { color: var(--text-gray); font-size: 0.9rem; height: 60px; }
-        .p-link { color: white; text-decoration: none; font-weight: bold; font-size: 0.8rem; letter-spacing: 1px; }
+        .p-card p { color: var(--text-gray); font-size: 0.9rem; min-height: 60px; margin-bottom: 20px; }
+        .p-link { color: white; text-decoration: none; font-weight: bold; font-size: 0.8rem; letter-spacing: 1px; display: inline-block; }
 
         /* Contato */
         .cta-section { padding: 100px 10%; text-align: center; }
@@ -112,6 +113,7 @@
             .hero h1 { font-size: 3rem; }
             .about-wrapper { grid-template-columns: 1fr; }
             nav { width: 90%; padding: 15px 5%; }
+            .cta-box h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -176,24 +178,31 @@
         
         <div class="grid-projects">
             <div class="p-card">
+                <div style="font-size: 2.5rem; margin-bottom: 20px;">🌤️</div>
+                <h3>Weather Forecast</h3>
+                <p>Aplicação de previsão do tempo em tempo real consumindo a API OpenWeatherMap com interface responsiva.</p>
+                <a href="https://israelksilva.github.io/clima/" target="_blank" class="p-link">VER PROJETO LIVE →</a>
+            </div>
+
+            <div class="p-card">
                 <div style="font-size: 2.5rem; margin-bottom: 20px;">🧮</div>
                 <h3>Calculadora Científica</h3>
                 <p>Ferramenta matemática avançada com funções trigonométricas e interface totalmente responsiva.</p>
-                <a href="https://calculadora-indol-xi.vercel.app/" target="_blank" class="p-link">VER PROJETO LIVE →</a>
+                <a href="https://israelksilva.github.io/calculadora/" target="_blank" class="p-link">VER PROJETO LIVE →</a>
             </div>
 
             <div class="p-card">
                 <div style="font-size: 2.5rem; margin-bottom: 20px;">🐍</div>
                 <h3>Snake Game Neon</h3>
                 <p>O clássico atemporal com visual moderno, sistema de recordes e controle otimizado.</p>
-                <a href="https://snake-arcade-rouge.vercel.app/" target="_blank" class="p-link">VER PROJETO LIVE →</a>
+                <a href="https://israelksilva.github.io/snake-arcade/" target="_blank" class="p-link">VER PROJETO LIVE →</a>
             </div>
 
             <div class="p-card">
                 <div style="font-size: 2.5rem; margin-bottom: 20px;">🧩</div>
                 <h3>Memory Match</h3>
                 <p>Jogo de memória focado em performance e manipulação dinâmica de elementos via JavaScript.</p>
-                <a href="https://jogo-da-mem-ria-five.vercel.app/" target="_blank" class="p-link">VER PROJETO LIVE →</a>
+                <a href="https://israelksilva.github.io/jogo-da-mem-ria/" target="_blank" class="p-link">VER PROJETO LIVE →</a>
             </div>
         </div>
     </section>
