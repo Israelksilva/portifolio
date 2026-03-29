@@ -58,6 +58,21 @@
         .hero h1 span { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { color: var(--text-gray); max-width: 600px; font-size: 1.2rem; margin-top: 15px; }
 
+        .btn-primary {
+            background: var(--gold-gradient); 
+            color: black; 
+            padding: 15px 40px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            transition: 0.3s;
+            box-shadow: 0 0 0 rgba(255, 193, 7, 0);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 193, 7, 0.2);
+        }
+
         /* Sobre Mim */
         .about { padding: 100px 10%; }
         .about-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
@@ -135,7 +150,7 @@
         <h1>Israel <span>Alcantara</span></h1>
         <p>Estudante de Engenharia de Software na UNIFACS. Criando soluções inteligentes e interfaces de alto impacto.</p>
         <div style="margin-top: 40px;">
-            <a href="#projetos" style="background: var(--gold-gradient); color: black; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;">Explorar Portfolio</a>
+            <a href="#projetos" class="btn-primary">Explorar Portfolio</a>
         </div>
     </section>
 
@@ -219,7 +234,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Israel Silva Alcantara | Desenvolvedor de Software</p>
+        <p>&copy; 2026 Israel Alcantara | Desenvolvedor de Software</p>
         <div style="margin-top: 20px;">
             <a href="https://github.com/Israelksilva" target="_blank" style="color: var(--text-gray); margin: 0 15px; font-size: 1.5rem;"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/israel-alcantara-b899b2326" target="_blank" style="color: var(--text-gray); margin: 0 15px; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
