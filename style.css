@@ -52,3 +52,25 @@
 .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
 .hero h1 em,.section-heading h2 em,.contact-wrap h2 em{background:linear-gradient(90deg,var(--accent2),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
 @media(max-width:640px){.screenshot-art{padding:10px}.portrait-shot img{height:100%;width:auto}}
+
+.contact-phone{font:500 clamp(18px,2vw,28px) 'Space Grotesk';color:#fff;text-decoration:none;margin-top:18px;display:flex;width:fit-content;gap:14px;align-items:center;transition:.25s}.contact-phone span{color:var(--accent)}.contact-phone:hover{color:var(--accent);transform:translateX(5px)}
+
+
+/* ===================================
+   CONTATO - CARDS
+=================================== */
+.contact-section{padding-bottom:110px}
+.contact-heading{margin-bottom:52px}
+.contact-heading>p:last-child{color:#999693;max-width:720px;line-height:1.8;margin-top:24px}
+.contact-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px;align-items:start;text-align:center}
+.contact-item{min-width:0;display:flex;flex-direction:column;align-items:center;color:var(--text);text-decoration:none;padding:8px 6px 12px;transition:transform .25s ease,color .25s ease}
+.contact-item:hover{transform:translateY(-7px)}
+.contact-icon{width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:rgba(59,130,246,.10);border:1px solid rgba(34,211,238,.14);color:var(--accent2);transition:transform .25s ease,background .25s ease,box-shadow .25s ease,border-color .25s ease}
+.contact-icon svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.github-icon svg{fill:currentColor;stroke:none}
+.contact-icon-text{font:700 29px/1 Arial,sans-serif}
+.contact-item:hover .contact-icon{transform:scale(1.07);background:rgba(34,211,238,.16);border-color:rgba(34,211,238,.35);box-shadow:0 0 28px rgba(34,211,238,.13)}
+.contact-item strong{font:700 18px 'Space Grotesk';margin-bottom:9px}
+.contact-item>span{max-width:100%;color:var(--muted);font-size:14px;line-height:1.45;overflow-wrap:anywhere}
+@media(max-width:900px){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:46px}}
+@media(max-width:520px){.contact-section{padding-bottom:82px}.contact-grid{grid-template-columns:1fr 1fr;gap:38px 12px}.contact-icon{width:58px;height:58px;margin-bottom:15px}.contact-icon svg{width:26px;height:26px}.contact-icon-text{font-size:25px}.contact-item strong{font-size:16px}.contact-item>span{font-size:11px}.contact-heading{margin-bottom:42px}}
