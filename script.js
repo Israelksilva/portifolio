@@ -10,15 +10,20 @@ const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   if (!grid || typeof CURSOS === 'undefined') return;
 
   const meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
-  const fmtData = d => { const [a, m] = d.split('-'); return `${meses[+m - 1]}/${a}`; };
+  const fmtData = d => { if (!d) return ''; const [a, m] = d.split('-'); return m ? `${meses[+m - 1]}/${a}` : a; };
   const esc = t => String(t).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const cursos = [...CURSOS].sort((a, b) => b.data.localeCompare(a.data));
+  const cursos = [...CURSOS].sort((a, b) => (b.data || '0').localeCompare(a.data || '0') || b.horas - a.horas);
 
   const total = cursos.reduce((t, c) => t + (+c.horas || 0), 0);
   $('#cursos-total').dataset.count = cursos.length;
   $('#cursos-horas').dataset.count = total;
   $('#cursos-horas').dataset.suffix = 'h';
   $('#cursos-inst').dataset.count = new Set(cursos.map(c => c.instituicao)).size;
+  const heroHoras = $('#hero-horas');
+  if (heroHoras) {
+    heroHoras.dataset.count = Math.floor(total / 100) * 100;
+    heroHoras.textContent = (+heroHoras.dataset.count).toLocaleString('pt-BR');
+  }
 
   grid.innerHTML = cursos.map(c => `
     <article class="course-card" data-area="${esc(c.area)}">
@@ -34,13 +39,34 @@ const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   filtros.innerHTML = areas.map((a, i) =>
     `<button type="button" class="${i ? '' : 'active'}" aria-pressed="${!i}" data-area="${esc(a)}">${esc(a)} <small>${count(a)}</small></button>`).join('');
 
+  // Mostra só os primeiros cursos até a pessoa pedir todos
+  const LIMITE = 6;
+  const more = $('#cursos-mais');
+  let area = 'Todos', expanded = false;
+  const apply = () => {
+    let shown = 0;
+    $$('.course-card', grid).forEach(card => {
+      const match = area === 'Todos' || card.dataset.area === area;
+      if (match) shown++;
+      card.hidden = !match || (!expanded && shown > LIMITE);
+    });
+    const totalMatch = area === 'Todos' ? cursos.length : count(area);
+    more.hidden = totalMatch <= LIMITE;
+    more.textContent = expanded ? 'Mostrar menos ↑' : `Ver todos os ${totalMatch} cursos ↓`;
+    more.setAttribute('aria-expanded', expanded);
+  };
+  apply();
+  more.addEventListener('click', () => {
+    expanded = !expanded;
+    apply();
+    if (!expanded) $('#cursos').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+
   filtros.addEventListener('click', e => {
     const btn = e.target.closest('button');
     if (!btn || btn.classList.contains('active')) return;
     $$('button', filtros).forEach(b => { b.classList.toggle('active', b === btn); b.setAttribute('aria-pressed', b === btn); });
-    const apply = () => $$('.course-card', grid).forEach(card => {
-      card.hidden = btn.dataset.area !== 'Todos' && card.dataset.area !== btn.dataset.area;
-    });
+    area = btn.dataset.area;
     if (reduceMotion) return apply();
     grid.classList.add('filtering');
     setTimeout(() => { apply(); requestAnimationFrame(() => grid.classList.remove('filtering')); }, 200);
