@@ -7,6 +7,8 @@
   <meta property="og:title" content="Israel Alcantara | Desenvolvedor Full Stack" />
   <meta property="og:description" content="Aplicações web completas: interface, API, banco de dados e deploy." />
   <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#070b17" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070b17'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='30' fill='%23fff'%3EIA%3C/text%3E%3Ccircle cx='50' cy='44' r='4' fill='%2322d3ee'/%3E%3C/svg%3E" />
   <title>Israel Alcantara | Desenvolvedor Full Stack</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +16,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#sobre">Pular para o conteúdo</a>
   <div class="noise"></div>
+  <div class="progress-bar" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
   <header class="topbar">
     <a class="brand" href="#home" aria-label="Início">IA<span>.</span></a>
     <nav class="desktop-nav" aria-label="Navegação principal">
@@ -32,17 +37,19 @@
     <section class="hero" id="home">
       <div class="hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span> DESENVOLVEDOR FULL STACK · DISPONÍVEL PARA ESTÁGIO E PROJETOS</p>
+          <p class="status-pill"><i></i> Disponível para estágio e projetos</p>
+          <p class="eyebrow"><span></span> DESENVOLVEDOR <b class="role-rotator" aria-live="polite">FULL STACK</b></p>
           <h1>Eu construo sistemas web <em>de ponta a ponta.</em></h1>
           <p class="hero-text">Sou <strong>Israel Alcantara</strong>, desenvolvedor full stack e estudante do 5º semestre de Engenharia de Software na UNIFACS, em Salvador/BA. Crio aplicações completas — <strong>interface, API, banco de dados e deploy</strong> — com foco em usabilidade, segurança e resultado.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="#projetos">Ver projetos <span>↗</span></a>
-            <a class="btn ghost" href="https://github.com/Israelksilva" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn primary magnetic" href="#projetos">Ver projetos <span>↗</span></a>
+            <a class="btn ghost magnetic" href="https://github.com/Israelksilva" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn ghost magnetic" href="https://www.linkedin.com/in/israel-alcantara-b899b2326" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
           <div class="hero-meta">
-            <div><strong>10+</strong><span>projetos desenvolvidos</span></div>
-            <div><strong>Full Stack</strong><span>front, back e banco de dados</span></div>
-            <div><strong>5º</strong><span>semestre em Engenharia de Software</span></div>
+            <div><strong><span data-count="10">10</span>+</strong><span>projetos desenvolvidos</span></div>
+            <div><strong><span data-count="700">700</span>h+</strong><span>de cursos e certificações</span></div>
+            <div><strong><span data-count="5">5</span>º</strong><span>semestre em Engenharia de Software</span></div>
           </div>
         </div>
 
@@ -60,12 +67,16 @@
   mindset: <i>"build & improve"</i>
 };</code></pre>
           </div>
-          <div class="mini-card mini-one">React <strong>⚛</strong></div>
+          <div class="mini-card mini-one floating">React <strong>⚛</strong></div>
           <div class="mini-card mini-two">Node.js + PostgreSQL <strong>DB</strong></div>
         </div>
       </div>
       <a class="scroll-cue" href="#sobre">SCROLL <span>↓</span></a>
     </section>
+
+    <div class="marquee" aria-label="Tecnologias que uso">
+      <div class="marquee-track"><div><span>React</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Supabase</span><span>Next.js</span><span>Python</span><span>FastAPI</span><span>Docker</span><span>Tailwind CSS</span><span>Git</span><span>Playwright</span></div><div aria-hidden="true"><span>React</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span><span>Supabase</span><span>Next.js</span><span>Python</span><span>FastAPI</span><span>Docker</span><span>Tailwind CSS</span><span>Git</span><span>Playwright</span></div></div>
+    </div>
 
     <section class="section" id="sobre">
       <div class="section-number">01</div>
@@ -186,6 +197,7 @@
         <p class="eyebrow"><span></span> CONTATO</p>
         <h2>Vamos construir algo<br><em>juntos?</em></h2>
         <p>Estou disponível para oportunidades de estágio, projetos, freelas e novas conexões profissionais.</p>
+        <button type="button" class="copy-email" data-email="israel.alcantara@hotmail.com"><span>israel.alcantara@hotmail.com</span><b>Copiar e-mail</b></button>
       </div>
 
       <div class="contact-grid reveal">
@@ -223,9 +235,21 @@
   </main>
 
   <footer>
-    <span>© 2026 Israel Alcantara</span>
-    <span>Desenvolvedor Full Stack · Salvador/BA</span>
+    <a class="brand" href="#home" aria-label="Voltar ao início">IA<span>.</span></a>
+    <nav class="footer-nav" aria-label="Rodapé">
+      <a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#cursos">Cursos</a><a href="#contato">Contato</a>
+    </nav>
+    <span>© 2026 Israel Alcantara · Desenvolvedor Full Stack · Salvador/BA</span>
   </footer>
+
+  <button type="button" class="to-top" aria-label="Voltar ao topo">↑</button>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada" hidden>
+    <button type="button" class="lb-close" aria-label="Fechar">✕</button>
+    <button type="button" class="lb-prev" aria-label="Imagem anterior">‹</button>
+    <figure><img alt="" /><figcaption></figcaption></figure>
+    <button type="button" class="lb-next" aria-label="Próxima imagem">›</button>
+  </div>
 
   <script src="cursos.js"></script>
   <script src="script.js"></script>

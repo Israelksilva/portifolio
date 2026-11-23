@@ -134,3 +134,156 @@
 .course-card a:hover{color:var(--accent2)}
 @media(max-width:980px){.courses-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.courses-grid{grid-template-columns:1fr}.courses-summary strong{font-size:28px}.courses-summary span{font-size:11px}}
+
+
+/* =====================================================
+   POLIMENTO — acabamento profissional e interações
+===================================================== */
+:root{--ease:cubic-bezier(.22,1,.36,1);--text-2:#aab6cc;--text-3:#7d8aa3;--glow:rgba(34,211,238,.10)}
+::selection{background:rgba(34,211,238,.28);color:#fff}
+html{scroll-padding-top:88px}
+body{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+
+/* Paleta: troca os cinzas quentes que sobraram do tema antigo */
+.hero-text,.about-text p,.project-info>p:not(.project-index),.contact-heading>p:last-child,.contact-wrap>p:not(.eyebrow){color:var(--text-2)}
+.hero-meta span,.about-cards small,.skill small,.project-row p,.tags span,footer{color:var(--text-3)}
+.section-number{color:#3a4a6b}
+.skill span,.project-row span{color:#4d5d80}
+
+/* Acessibilidade */
+.skip-link{position:fixed;left:16px;top:-60px;z-index:200;background:#fff;color:#070b17;padding:10px 14px;border-radius:6px;font-weight:700;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:12px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent2);outline-offset:3px;border-radius:4px}
+
+/* Barra de progresso e brilho do cursor */
+.progress-bar{position:fixed;top:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--accent2),var(--accent));z-index:120;pointer-events:none}
+.cursor-glow{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.07),transparent 65%);pointer-events:none;z-index:0;opacity:0;transition:opacity .4s}
+body.has-pointer .cursor-glow{opacity:1}
+main,footer{position:relative;z-index:1}
+
+/* Cabeçalho que encolhe + item ativo */
+.topbar{transition:height .35s var(--ease),background .35s,box-shadow .35s}
+.topbar.scrolled{height:66px;background:rgba(7,11,23,.92);box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.desktop-nav a{position:relative;padding:6px 0}
+.desktop-nav a:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--accent2),var(--accent));transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.desktop-nav a:hover:after,.desktop-nav a.active:after{transform:scaleX(1)}
+.desktop-nav a.active{color:#fff}
+
+/* Hero */
+.hero h1{font-size:clamp(46px,6.2vw,92px);text-wrap:balance}
+.status-pill{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 12px;margin-bottom:22px;border:1px solid rgba(34,197,94,.25);background:rgba(34,197,94,.08);border-radius:999px;color:#b7f7cd;font-size:12px;font-weight:600}
+.status-pill i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.role-rotator{display:inline-block;font-weight:800;color:var(--accent2);min-width:9ch;transition:opacity .3s,transform .3s var(--ease)}
+.role-rotator.out{opacity:0;transform:translateY(-8px)}
+.btn{transition:transform .25s var(--ease),box-shadow .25s,border-color .25s,background .25s}
+.btn.primary:hover{box-shadow:0 12px 34px rgba(34,211,238,.25)}
+.btn.ghost:hover{border-color:var(--accent2);background:rgba(34,211,238,.06)}
+.btn span{transition:transform .25s var(--ease)}
+.btn:hover span{transform:translate(3px,-3px)}
+.profile-photo-wrap{transition:transform .6s var(--ease)}
+.hero-visual:hover .profile-photo-wrap{transform:translate(-50%,-50%) scale(1.02)}
+.mini-card{backdrop-filter:blur(10px);background:rgba(13,20,38,.85);border-color:#2a3a5c;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+
+/* Faixa de tecnologias */
+.marquee{position:relative;overflow:hidden;border-top:1px solid var(--line);padding:22px 0;background:#080d1c;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track div{display:flex}
+.marquee-track span{font:600 clamp(18px,2vw,26px) 'Space Grotesk';color:#4f5f82;padding:0 30px;white-space:nowrap;display:flex;align-items:center;gap:30px;transition:color .2s}
+.marquee-track span:after{content:"✦";font-size:12px;color:var(--accent)}
+.marquee-track span:hover{color:#fff}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* Cards com brilho que segue o mouse */
+.spot{position:relative;isolation:isolate}
+.spot:before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),var(--glow),transparent 45%);opacity:0;transition:opacity .3s;z-index:-1;pointer-events:none}
+.spot:hover:before{opacity:1}
+.about-cards article,.skill{transition:background .3s,transform .3s var(--ease)}
+.about-cards article:hover{background:rgba(18,28,51,.6)}
+.skill:hover{transform:none;background:rgba(18,28,51,.7)}
+.skill strong{transition:transform .3s var(--ease)}
+.skill:hover strong{transform:translateX(4px)}
+
+/* Projetos: inclinação 3D + zoom */
+.project-art{transform-style:preserve-3d;transition:transform .5s var(--ease),box-shadow .5s,border-color .3s;will-change:transform}
+.project-art:hover{border-color:#355089;box-shadow:0 35px 80px rgba(0,0,0,.4),0 0 0 1px rgba(34,211,238,.06)}
+.project-art img{cursor:zoom-in}
+.project-art:after{content:"Clique para ampliar";position:absolute;right:14px;bottom:14px;font-size:11px;font-weight:700;color:#fff;background:rgba(7,11,23,.75);border:1px solid var(--line);padding:6px 10px;border-radius:999px;opacity:0;transform:translateY(6px);transition:.3s var(--ease);pointer-events:none}
+.project-art:hover:after{opacity:1;transform:none}
+.project-info h3{transition:letter-spacing .4s var(--ease)}
+.project-feature:hover .project-info h3{letter-spacing:-.04em}
+.tags span{transition:border-color .2s,color .2s}
+.tags span:hover{border-color:var(--accent);color:#fff}
+.project-row a{transition:transform .25s var(--ease)}
+.project-row:hover a{transform:translate(3px,-3px)}
+.mini-project{transition:transform .35s var(--ease),border-color .3s,box-shadow .3s}
+.mini-project:hover{box-shadow:0 22px 50px rgba(0,0,0,.35)}
+.mini-shot img{transition:transform .5s var(--ease)}
+.mini-project:hover .mini-shot img{transform:scale(1.05)}
+
+/* Entrada escalonada */
+.stagger>*{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease);transition-delay:calc(var(--i,0) * 55ms)}
+.stagger.visible>*{opacity:1;transform:none}
+.course-card{transition:transform .35s var(--ease),border-color .3s,box-shadow .3s,opacity .35s}
+.course-card:hover{box-shadow:0 22px 50px rgba(0,0,0,.3)}
+.courses-grid.filtering .course-card{opacity:0;transform:scale(.97)}
+
+/* Contato: copiar e-mail */
+.copy-email{margin-top:30px;display:inline-flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 20px;color:#fff;font:500 15px Inter,sans-serif;cursor:pointer;transition:border-color .25s,transform .25s var(--ease)}
+.copy-email:hover{border-color:var(--accent2);transform:translateY(-2px)}
+.copy-email b{background:linear-gradient(135deg,var(--accent),var(--accent2));padding:9px 14px;border-radius:999px;font-size:12px}
+
+/* Rodapé */
+footer{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:30px;padding:34px 7vw}
+footer .brand{font-size:22px}
+.footer-nav{display:flex;gap:22px;justify-content:center}
+.footer-nav a{color:var(--text-3);text-decoration:none;font-size:12px;transition:color .2s}
+.footer-nav a:hover{color:#fff}
+
+/* Voltar ao topo e aviso */
+.to-top{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(13,20,38,.9);color:#fff;font-size:18px;cursor:pointer;z-index:60;opacity:0;transform:translateY(12px);pointer-events:none;transition:.3s var(--ease);backdrop-filter:blur(8px)}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{border-color:var(--accent2);color:var(--accent2)}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:#fff;color:#070b17;font-weight:700;font-size:13px;padding:12px 18px;border-radius:999px;box-shadow:0 18px 40px rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:.35s var(--ease);z-index:150}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:180;background:rgba(3,6,14,.92);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:60px 80px;animation:lbIn .25s ease}
+.lightbox[hidden]{display:none}
+.lightbox figure{max-width:min(1200px,100%);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:14px}
+.lightbox img{max-width:100%;max-height:calc(100vh - 160px);object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lightbox figcaption{color:var(--text-2);font-size:13px;text-align:center}
+.lightbox button{position:absolute;background:rgba(13,20,38,.8);border:1px solid var(--line);color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer;transition:border-color .2s}
+.lightbox button:hover{border-color:var(--accent2)}
+.lb-close{top:20px;right:20px;font-size:16px!important}
+.lb-prev{left:20px;top:50%;transform:translateY(-50%)}
+.lb-next{right:20px;top:50%;transform:translateY(-50%)}
+.lightbox.single .lb-prev,.lightbox.single .lb-next{display:none}
+@keyframes lbIn{from{opacity:0}}
+body.lb-open{overflow:hidden}
+
+@media(max-width:980px){.desktop-nav a:after{display:none}.desktop-nav.open a.active{color:var(--accent2)}}
+@media(max-width:640px){
+  .status-pill{font-size:11px}
+  .role-rotator{min-width:0}
+  .marquee{padding:16px 0}
+  .copy-email{font-size:13px;padding-left:14px;max-width:100%}
+  .copy-email span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  footer{grid-template-columns:1fr;text-align:center;justify-items:center;gap:16px}
+  .lightbox{padding:70px 12px}
+  .lb-prev,.lb-next{top:auto;bottom:16px;transform:none}
+  .lb-prev{left:calc(50% - 58px)}.lb-next{right:calc(50% - 58px)}
+  .to-top{right:14px;bottom:14px}
+  .project-art:after{display:none}
+}
+@media(hover:none){.cursor-glow{display:none}}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .marquee-track{animation:none}
+  .reveal,.stagger>*{opacity:1!important;transform:none!important}
+}
+.courses-filters button small{margin-left:6px;font-size:10px;color:var(--text-3)}
+.courses-filters button.active small{color:var(--accent2)}
+.hero-meta strong span{display:inline;margin:0;font:inherit;color:inherit}
+.contact-heading>p:not(.eyebrow){color:var(--text-2);max-width:720px;line-height:1.8;margin-top:24px}
